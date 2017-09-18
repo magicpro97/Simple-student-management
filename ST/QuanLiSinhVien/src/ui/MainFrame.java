@@ -1,11 +1,13 @@
 package ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -56,6 +58,48 @@ public class MainFrame extends JFrame{
 		menuBar.add(mnAbout);
 		
 		studentInfoPanel = new StudentInfoPanel();
+		
+		studentInfoPanel.id.setEnabled(false);
+		studentInfoPanel.id.setDisabledTextColor(Color.BLACK);
+		studentInfoPanel.id.setBackground(getBackground());
+		studentInfoPanel.id.setBorder(BorderFactory.createEmptyBorder());
+		
+		studentInfoPanel.fullName.setEnabled(false);
+		studentInfoPanel.fullName.setDisabledTextColor(Color.BLACK);
+		studentInfoPanel.fullName.setBackground(getBackground());
+		studentInfoPanel.fullName.setBorder(BorderFactory.createEmptyBorder());
+		
+		studentInfoPanel.nationalId.setEnabled(false);
+		studentInfoPanel.nationalId.setDisabledTextColor(Color.BLACK);
+		studentInfoPanel.nationalId.setBackground(getBackground());
+		studentInfoPanel.nationalId.setBorder(BorderFactory.createEmptyBorder());
+		
+		studentInfoPanel.birthday.setEnabled(false);
+		studentInfoPanel.birthday.setDisabledTextColor(Color.BLACK);
+		studentInfoPanel.birthday.setBackground(getBackground());
+		studentInfoPanel.birthday.setBorder(BorderFactory.createEmptyBorder());
+		
+		studentInfoPanel.address.setEnabled(false);
+		studentInfoPanel.address.setDisabledTextColor(Color.BLACK);
+		studentInfoPanel.address.setBackground(getBackground());
+		studentInfoPanel.address.setBorder(BorderFactory.createEmptyBorder());
+		
+		studentInfoPanel.phone.setEnabled(false);
+		studentInfoPanel.phone.setDisabledTextColor(Color.BLACK);
+		studentInfoPanel.phone.setBackground(getBackground());
+		studentInfoPanel.phone.setBorder(BorderFactory.createEmptyBorder());
+		
+		studentInfoPanel.btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FormInfoFrame editFrame = new FormInfoFrame();
+				editFrame.setVisible(true);
+				editFrame.setTitle("Edit student information!");
+				editFrame.inforForm.btn1.setText("Save");
+				editFrame.inforForm.btn2.setText("Cancel");
+			}
+		});
 	}
 
 	private void setting() {

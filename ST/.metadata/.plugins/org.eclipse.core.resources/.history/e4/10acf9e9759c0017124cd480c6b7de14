@@ -1,0 +1,130 @@
+package ui;
+
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class StudentInfoPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	String[] label ={"ID: ","Full name: ","National ID: ","Birthday: ","Address: ","Phone number:"};
+	JPanel labelPanel;
+	JPanel tfPanel;
+	JPanel btnPanel;
+	JPanel formPanel;
+	JPanel avatarPanel;
+	JPanel inforPanel;
+	JButton btnEdit;
+	JButton btnDelete;
+	JTextField id;
+	JTextField avatar;
+	JTextField fullName;
+	JTextField nationalId;
+	JTextField birthday;
+	JTextField address;
+	JTextField phone;
+	FormInfoFrame editFrame;
+	public StudentInfoPanel() {
+		this.setMaximumSize(new Dimension(500, 500));
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void addEvents() {
+		btnEdit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				editFrame.setVisible(true);
+			}
+		});
+	}
+
+	private void addControls() {
+		editFrame = new FormInfoFrame();
+		inforPanel = new JPanel();
+		inforPanel.setLayout(new BorderLayout());
+		avatarPanel = new JPanel();
+		BufferedImage img;
+		try {
+			img = ImageIO.read(new File("IMG_3575.jpg"));
+			 ImageIcon icon = new ImageIcon(img);
+		     JLabel labela = new JLabel(icon);
+		     avatarPanel.add(labela);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+       
+		//avatarPanel.add(new JButton("Khu vuc hinh"));
+		formPanel = new JPanel();
+		formPanel.setLayout(new BorderLayout());
+		
+		labelPanel = new JPanel();
+		labelPanel.setLayout(new GridLayout(label.length, 1));
+		tfPanel = new JPanel();
+		tfPanel.setLayout(new GridLayout(label.length, 1));
+		for(int i = 0; i < label.length; i++)
+		{
+			labelPanel.add(new JLabel(label[i]));
+			//tfPanel.add(new JTextField(50));
+		}
+		id = new JTextField("6969696");
+
+		
+		fullName = new JTextField("Linh đẹp trai");
+	
+		
+		nationalId = new JTextField("696969696");
+	
+		
+		birthday = new JTextField("18/10/1997");
+		
+		
+		address = new JTextField("Chung cư Vincom, 01 Lê Thanh Nghị, Hòa Cường Bắc, Hải Châu, Đà Nẵng");
+		
+		
+		phone = new JTextField("696969696");
+		
+		
+		tfPanel.add(id);
+		tfPanel.add(fullName);
+		tfPanel.add(nationalId);
+		tfPanel.add(birthday);
+		tfPanel.add(address);
+		tfPanel.add(phone);
+		
+		btnPanel = new JPanel();
+		btnEdit = new JButton("Edit");
+		btnDelete = new JButton("Delete");
+		btnPanel.add(btnEdit);
+		btnPanel.add(btnDelete);
+		inforPanel.add(labelPanel, BorderLayout.LINE_START);
+		inforPanel.add(tfPanel, BorderLayout.CENTER);
+		formPanel.add(avatarPanel, BorderLayout.LINE_START);
+		formPanel.add(inforPanel, BorderLayout.CENTER);
+		formPanel.add(btnPanel, BorderLayout.PAGE_END);
+	}
+
+	private void setting() {
+		this.add(formPanel);
+		
+	}
+}

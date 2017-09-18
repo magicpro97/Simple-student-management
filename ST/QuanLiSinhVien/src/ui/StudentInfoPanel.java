@@ -2,7 +2,6 @@ package ui;
 
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
@@ -10,7 +9,6 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -30,8 +28,8 @@ public class StudentInfoPanel extends JPanel {
 	JPanel formPanel;
 	JPanel avatarPanel;
 	JPanel inforPanel;
-	JButton btnEdit;
-	JButton btnDelete;
+	JButton btn1;
+	JButton btn2;
 	JTextField id;
 	JTextField avatar;
 	JTextField fullName;
@@ -39,36 +37,33 @@ public class StudentInfoPanel extends JPanel {
 	JTextField birthday;
 	JTextField address;
 	JTextField phone;
-	public StudentInfoPanel() {
-		this.setMaximumSize(new Dimension(500, 500));
-		addControls();
-		addEvents();
-		setting();
-	}
 
-	private void addEvents() {
-		
+	public StudentInfoPanel() {
+		this.setMaximumSize(new Dimension(300, 400));
+		addControls();
+		setting();
 	}
 
 	private void addControls() {
 		inforPanel = new JPanel();
 		inforPanel.setLayout(new BorderLayout());
 		avatarPanel = new JPanel();
+		avatarPanel.setLayout(new BorderLayout());
+		
 		BufferedImage img;
 		try {
 			img = ImageIO.read(new File("IMG_3575.jpg"));
-			 ImageIcon icon = new ImageIcon(img);
-		     JLabel labela = new JLabel(icon);
-		     avatarPanel.add(labela);
+			ImageIcon icon = new ImageIcon(img);
+			JLabel labela = new JLabel(icon);
+			labela.setMaximumSize(new Dimension(120, 90));
+			avatarPanel.add(labela,BorderLayout.CENTER);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-       
-		//avatarPanel.add(new JButton("Khu vuc hinh"));
 		formPanel = new JPanel();
 		formPanel.setLayout(new BorderLayout());
-		
+
 		labelPanel = new JPanel();
 		labelPanel.setLayout(new GridLayout(label.length, 1));
 		tfPanel = new JPanel();
@@ -79,53 +74,35 @@ public class StudentInfoPanel extends JPanel {
 			//tfPanel.add(new JTextField(50));
 		}
 		id = new JTextField("6969696");
-		id.setEnabled(false);
-		id.setDisabledTextColor(Color.BLACK);
-		id.setBackground(getBackground());
-		id.setBorder(BorderFactory.createEmptyBorder());
-		
+
+
 		fullName = new JTextField("Linh đẹp trai");
-		fullName.setEnabled(false);
-		fullName.setDisabledTextColor(Color.BLACK);
-		fullName.setBackground(getBackground());
-		fullName.setBorder(BorderFactory.createEmptyBorder());
-		
+
+
 		nationalId = new JTextField("696969696");
-		nationalId.setEnabled(false);
-		nationalId.setDisabledTextColor(Color.BLACK);
-		nationalId.setBackground(getBackground());
-		nationalId.setBorder(BorderFactory.createEmptyBorder());
-		
+
+
 		birthday = new JTextField("18/10/1997");
-		birthday.setEnabled(false);
-		birthday.setDisabledTextColor(Color.BLACK);
-		birthday.setBackground(getBackground());
-		birthday.setBorder(BorderFactory.createEmptyBorder());
-		
+
+
 		address = new JTextField("Chung cư Vincom, 01 Lê Thanh Nghị, Hòa Cường Bắc, Hải Châu, Đà Nẵng");
-		address.setEnabled(false);
-		address.setDisabledTextColor(Color.BLACK);
-		address.setBackground(getBackground());
-		address.setBorder(BorderFactory.createEmptyBorder());
-		
+
+
 		phone = new JTextField("696969696");
-		phone.setEnabled(false);
-		phone.setDisabledTextColor(Color.BLACK);
-		phone.setBackground(getBackground());
-		phone.setBorder(BorderFactory.createEmptyBorder());
-		
+
+
 		tfPanel.add(id);
 		tfPanel.add(fullName);
 		tfPanel.add(nationalId);
 		tfPanel.add(birthday);
 		tfPanel.add(address);
 		tfPanel.add(phone);
-		
+
 		btnPanel = new JPanel();
-		btnEdit = new JButton("Edit");
-		btnDelete = new JButton("Delete");
-		btnPanel.add(btnEdit);
-		btnPanel.add(btnDelete);
+		btn1 = new JButton("Edit");
+		btn2 = new JButton("Delete");
+		btnPanel.add(btn1);
+		btnPanel.add(btn2);
 		inforPanel.add(labelPanel, BorderLayout.LINE_START);
 		inforPanel.add(tfPanel, BorderLayout.CENTER);
 		formPanel.add(avatarPanel, BorderLayout.LINE_START);
@@ -135,6 +112,6 @@ public class StudentInfoPanel extends JPanel {
 
 	private void setting() {
 		this.add(formPanel);
-		
+
 	}
 }

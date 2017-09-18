@@ -1,0 +1,35 @@
+package ui;
+
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+public class FormInfoFrame extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	StudentInfoPanel addForm;
+	
+	public FormInfoFrame() {
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void setting() {
+		this.setSize(new Dimension(400, 300));
+		this.setResizable(false);
+		this.add(addForm);
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		addForm = new StudentInfoPanel();
+	}
+
+}

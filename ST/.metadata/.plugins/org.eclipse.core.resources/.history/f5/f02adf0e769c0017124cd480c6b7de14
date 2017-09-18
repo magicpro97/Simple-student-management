@@ -1,0 +1,31 @@
+package ui;
+
+import javax.swing.JFrame;
+
+public class FormInfoFrame extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	StudentInfoPanel addForm;
+	
+	public FormInfoFrame() {
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void setting() {
+		this.add(addForm);
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		addForm = new StudentInfoPanel();
+	}
+
+}

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -49,7 +48,28 @@ public class SearchPanel extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new JFrame().setVisible(true);
+				FormInfoFrame addFrame = new FormInfoFrame();
+				addFrame.setVisible(true);
+				addFrame.setTitle("Add student information");
+				addFrame.setSize(new Dimension(800, 600));
+				addFrame.setResizable(false);
+				addFrame.inforForm.btn1.setText("Add");
+				addFrame.inforForm.btn2.setText("Cancel");
+				addFrame.inforForm.btn1.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+				addFrame.inforForm.btn2.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						addFrame.setVisible(false);
+					}
+				});
+				
 			}
 		});
 	}
