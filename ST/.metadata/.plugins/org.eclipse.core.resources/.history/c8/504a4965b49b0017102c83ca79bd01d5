@@ -1,0 +1,103 @@
+package ui;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+
+import common.SpringUtilities;
+
+public class StudentInfoPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JLabel lbStudentId;
+	JLabel lbStudentAvatar;
+	JLabel lbStudentFullName;
+	JLabel lbStudentNationalId;
+	JLabel lbStudentBirthday;
+	JLabel lbStudentAddress;
+	JLabel lbStudentPhone;
+	
+	JTextField txtStudentId;
+	JTextField txtStudentFullName;
+	JTextField txtStudentNationalId;
+	JTextField txtStudentBirthday;
+	JTextField txtStudentAddress;
+	JTextField txtStudentPhone;
+	
+	SpringLayout springLayout;
+	
+	public StudentInfoPanel() {
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		lbStudentAddress = new JLabel("Address: ");
+		lbStudentAvatar = new JLabel("Avatar");
+		lbStudentBirthday = new JLabel("Birthday: ");
+		lbStudentFullName = new JLabel("Full name: ");
+		lbStudentNationalId = new JLabel("National ID:");
+		lbStudentPhone = new JLabel("Phone number: ");
+		lbStudentId = new JLabel("ID:");
+		
+		txtStudentAddress = new JTextField(50);
+		txtStudentNationalId = new JTextField(50);
+		txtStudentFullName = new JTextField(50);
+		txtStudentPhone = new JTextField(50);
+		txtStudentId = new JTextField(50);
+		txtStudentBirthday = new JTextField(50);
+		
+		springLayout = new SpringLayout();
+	/*	springLayout.putConstraint(SpringLayout.WEST,lbStudentId,5,SpringLayout.WEST,this);
+		springLayout.putConstraint(SpringLayout.WEST,lbStudentFullName,5,SpringLayout.WEST,this);
+		springLayout.putConstraint(SpringLayout.WEST,lbStudentBirthday,5,SpringLayout.WEST,this);
+		springLayout.putConstraint(SpringLayout.WEST,lbStudentNationalId,5,SpringLayout.WEST,this);
+		springLayout.putConstraint(SpringLayout.WEST,lbStudentPhone,5,SpringLayout.WEST,this);
+		springLayout.putConstraint(SpringLayout.WEST,lbStudentAddress,5,SpringLayout.WEST,this);
+		
+		springLayout.putConstraint(SpringLayout.EAST,txtStudentId,5,SpringLayout.EAST,this);
+		springLayout.putConstraint(SpringLayout.EAST,txtStudentFullName,5,SpringLayout.EAST,this);
+		springLayout.putConstraint(SpringLayout.EAST,txtStudentBirthday,5,SpringLayout.EAST,this);
+		springLayout.putConstraint(SpringLayout.EAST,txtStudentNationalId,5,SpringLayout.EAST,this);
+		springLayout.putConstraint(SpringLayout.EAST,txtStudentPhone,5,SpringLayout.EAST,this);
+		springLayout.putConstraint(SpringLayout.EAST,txtStudentAddress,5,SpringLayout.EAST,this);*/
+	}
+
+	private void setting() {
+		this.setLayout(springLayout);
+		this.add(lbStudentId);
+		this.add(txtStudentId);
+		
+		this.add(lbStudentFullName);
+		this.add(txtStudentFullName);
+		
+		this.add(lbStudentAddress);
+		this.add(txtStudentAddress);
+		
+		this.add(lbStudentBirthday);
+		this.add(txtStudentBirthday);
+		
+		this.add(lbStudentNationalId);
+		this.add(txtStudentNationalId);
+		
+		this.add(lbStudentPhone);
+		this.add(txtStudentPhone);
+		
+	//	this.setOpaque(true);
+		
+		SpringUtilities.makeGrid(this, 
+				6, 2,
+				0, 0,
+				0, 0);
+	}
+
+}

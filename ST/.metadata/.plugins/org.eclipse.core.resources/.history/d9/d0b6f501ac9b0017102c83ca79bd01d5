@@ -1,0 +1,47 @@
+package ui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.HeadlessException;
+import java.awt.MenuBar;
+
+import javax.swing.JFrame;
+
+public class MainFrame extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	SearchPanel searchPanel;
+	MenuBar menuBar;
+	
+	public MainFrame() throws HeadlessException {
+		super();
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		searchPanel = new SearchPanel();
+		menuBar = new MenuBar();
+	}
+
+	private void setting() {
+		this.setTitle("Quản lí thông tin sinh viên");
+		this.setVisible(true);
+		//this.setLocationRelativeTo(null);
+		this.setSize(new Dimension(1024, 800));
+		this.setLayout(new BorderLayout());
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// add component
+		this.add(searchPanel, BorderLayout.LINE_START);
+		this.setMenuBar(menuBar);
+	}
+	
+}

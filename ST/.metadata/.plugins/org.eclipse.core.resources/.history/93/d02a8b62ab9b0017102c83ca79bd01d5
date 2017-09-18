@@ -1,0 +1,66 @@
+package ui;
+
+import java.awt.Dimension;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+
+
+public class SearchPanel extends JPanel{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JTextField txtSearch;
+	JButton btnSearch;
+	JLabel lbSearch;
+	JLabel lbStudentId;
+	JScrollPane spStudentId;
+	DefaultListModel<String> lmStudentId;
+	JList<String> listStudentId;
+	
+	public SearchPanel() {
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void setting() {
+		this.add(spStudentId);
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		txtSearch = new JTextField();
+		btnSearch = new JButton("Search");
+		lbSearch = new JLabel("Search:");
+		lbStudentId = new JLabel("Student id:");
+		
+		lmStudentId = new DefaultListModel<>();
+		lmStudentId.addElement("Nguyên óc cứt");
+		
+		listStudentId = new JList<>(lmStudentId);
+		listStudentId.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listStudentId.setLayoutOrientation(JList.VERTICAL);
+		listStudentId.setVisibleRowCount(-1);
+		
+		spStudentId = new JScrollPane(listStudentId);
+		spStudentId.setPreferredSize(new Dimension(200, 720));
+		spStudentId.add(txtSearch);
+		spStudentId.add(btnSearch);
+		spStudentId.add(lbSearch);
+		spStudentId.add(lbStudentId);
+		spStudentId.add(listStudentId);
+		
+	}
+}

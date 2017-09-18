@@ -1,0 +1,47 @@
+package ui;
+
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class StudentInfoPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	String[] label ={"ID: ","Full name: ","Birthday: ","National ID: ","Address: ","Phone number:"};
+	JPanel labelPanel;
+	JPanel tfPanel;
+	public StudentInfoPanel() {
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		labelPanel = new JPanel();
+		labelPanel.setLayout(new GridLayout(label.length, 1);
+		tfPanel = new JPanel();
+		for(int i = 0; i < label.length; i++)
+		{
+			labelPanel.add(new JLabel(label[i]));
+			tfPanel.add(new JTextField(20));
+		}
+	}
+
+	private void setting() {
+		this.setLayout(new BorderLayout());
+		this.add(labelPanel, BorderLayout.LINE_START);
+		this.add(tfPanel, BorderLayout.CENTER);
+	}
+}

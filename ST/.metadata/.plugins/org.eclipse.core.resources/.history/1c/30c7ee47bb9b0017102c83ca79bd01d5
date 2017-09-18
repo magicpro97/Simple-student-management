@@ -1,0 +1,72 @@
+package ui;
+
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class StudentInfoPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	String[] label ={"ID: ","Full name: ","Birthday: ","National ID: ","Address: ","Phone number:"};
+	JPanel labelPanel;
+	JPanel tfPanel;
+	JPanel btnPanel;
+	JPanel formPanel;
+	JPanel avatarPanel;
+	JPanel inforPanel;
+	JButton btnEdit;
+	JButton btnDelete;
+	public StudentInfoPanel() {
+		this.setMaximumSize(new Dimension(500, 500));
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		inforPanel = new JPanel();
+		inforPanel.setLayout(new BorderLayout());
+		avatarPanel = new JPanel();
+		avatarPanel.add(new JButton("Khu vuc hinh"));
+		formPanel = new JPanel();
+		formPanel.setLayout(new BorderLayout());
+		
+		labelPanel = new JPanel();
+		labelPanel.setLayout(new GridLayout(label.length, 1));
+		tfPanel = new JPanel();
+		tfPanel.setLayout(new GridLayout(label.length, 1));
+		for(int i = 0; i < label.length; i++)
+		{
+			labelPanel.add(new JLabel(label[i]));
+			tfPanel.add(new JTextField(20));
+		}
+		btnPanel = new JPanel();
+		btnEdit = new JButton("Edit");
+		btnDelete = new JButton("Delete");
+		btnPanel.add(btnEdit);
+		btnPanel.add(btnDelete);
+		inforPanel.add(labelPanel, BorderLayout.LINE_START);
+		inforPanel.add(tfPanel, BorderLayout.CENTER);
+		formPanel.add(avatarPanel, BorderLayout.LINE_START);
+		formPanel.add(inforPanel, BorderLayout.CENTER);
+		formPanel.add(btnPanel, BorderLayout.PAGE_END);
+	}
+
+	private void setting() {
+		this.add(formPanel);
+		
+	}
+}

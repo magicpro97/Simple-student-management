@@ -1,0 +1,43 @@
+package ui;
+
+import java.awt.Dimension;
+import java.awt.HeadlessException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class MainFrame extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	SearchPanel searchPanel;
+	
+	public MainFrame() throws HeadlessException {
+		super();
+		addControls();
+		addEvents();
+		setting();
+	}
+
+	private void addEvents() {
+		
+	}
+
+	private void addControls() {
+		searchPanel = new SearchPanel();
+	}
+
+	private void setting() {
+		this.setTitle("Quản lí thông tin sinh viên");
+		this.setVisible(true);
+		//this.setLocationRelativeTo(null);
+		this.setSize(new Dimension(1024, 800));
+		
+		// add component
+		this.add(searchPanel);
+		this.add(new JButton("Cặc"));
+	}
+	
+}
