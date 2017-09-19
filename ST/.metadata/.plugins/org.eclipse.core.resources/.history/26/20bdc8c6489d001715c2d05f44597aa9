@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 
 public class MainFrame extends JFrame{
 
@@ -35,7 +34,7 @@ public class MainFrame extends JFrame{
 		addEvents();
 		setting();
 	}
-	//Sự kiện thì chỉ được code trong addEvent
+
 	private void addEvents() {
 		//Đây sự kiện của nút Edit
 				studentInfoPanel.btn1.addActionListener(new ActionListener() {
@@ -55,7 +54,7 @@ public class MainFrame extends JFrame{
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								editFrame.setVisible(false);
+								
 							}
 						});
 						
@@ -64,21 +63,13 @@ public class MainFrame extends JFrame{
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								editFrame.setVisible(false);
+								
 							}
 						});
 					}
 				});
-				//Đây là sự kiện bút Delete
-				studentInfoPanel.btn2.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showConfirmDialog(null, "Do you want to delete this student???", "Warning", JOptionPane.YES_NO_OPTION);
-					}
-				});
 	}
-	
+
 	private void addControls() {
 		searchPanel = new SearchPanel();
 		

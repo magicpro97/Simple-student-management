@@ -18,7 +18,7 @@ import javax.swing.ListSelectionModel;
 public class SearchPanel extends JPanel{
 
 	/**
-	 * Đây là phần panel bao gồm search field, student list và nút Add
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	JTextField txtSearch;
@@ -42,9 +42,8 @@ public class SearchPanel extends JPanel{
 		this.add(spStudentId,BorderLayout.CENTER);
 		this.add(btnAdd, BorderLayout.PAGE_END);
 	}
-	//Sự kiện thì chỉ được code trong addEvent
+
 	private void addEvents() {
-		//Sự kiện của nút Add ở đây
 		btnAdd.addActionListener(new ActionListener() {
 			
 			@Override
@@ -52,23 +51,17 @@ public class SearchPanel extends JPanel{
 				FormInfoFrame addFrame = new FormInfoFrame();
 				addFrame.setVisible(true);
 				addFrame.setTitle("Add student information");
+				addFrame.setSize(new Dimension(800, 600));
 				addFrame.setResizable(false);
-				//Nút add
 				addFrame.inforForm.btn1.setText("Add");
-				
-				//Nút cancel
 				addFrame.inforForm.btn2.setText("Cancel");
-				
-				//Sự kiện của nút Add ở đây
 				addFrame.inforForm.btn1.addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						addFrame.setVisible(false);
+						
 					}
 				});
-				
-				//Sự kiện của nút Cancel ở đây
 				addFrame.inforForm.btn2.addActionListener(new ActionListener() {
 					
 					@Override

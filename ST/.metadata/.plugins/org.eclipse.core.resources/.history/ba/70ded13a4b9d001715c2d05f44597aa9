@@ -52,6 +52,7 @@ public class SearchPanel extends JPanel{
 				FormInfoFrame addFrame = new FormInfoFrame();
 				addFrame.setVisible(true);
 				addFrame.setTitle("Add student information");
+				addFrame.setSize(new Dimension(800, 600));
 				addFrame.setResizable(false);
 				//Nút add
 				addFrame.inforForm.btn1.setText("Add");
@@ -64,7 +65,7 @@ public class SearchPanel extends JPanel{
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						addFrame.setVisible(false);
+						
 					}
 				});
 				
